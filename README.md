@@ -19,6 +19,13 @@ Global git config rules
 Handy utility that will clear Linux caches
 
 ```
+$> chmod +x clean_memory.sh
+$> sudo clean_memory.sh
+```
+
+Copy to remote host:
+
+```
 $> scp clean_memory.sh user@host:~/
 ```
 
