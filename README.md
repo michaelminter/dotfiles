@@ -1,6 +1,18 @@
 # System Files
 
-Not generally organized
+List of files used by both Linux and Mac systems
+
+## .bash_profile
+
+User specific session environment and startup programs
+
+```
+$> cp .bash_profile ~/
+```
+
+## .gitconfig
+
+Global git config rules
 
 ## clean_memory.sh
 
@@ -8,13 +20,13 @@ Not generally organized
 $> scp clean_memory.sh user@host:~/
 ```
 
-## .bash_profile
+## git-completion.bash
 
-```
-$> cp .bash_profile ~/
-```
+Is this for zch?
 
 ## git_log_before.sh
+
+Add global git alias' for output of commits from today and yesterday
 
 ```
 $> ./git_log_before.sh
