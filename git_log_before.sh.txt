@@ -1,0 +1,5 @@
+# git today
+git config --global alias.today '!git log --since=midnight --author="$(git config user.name)" --oneline'
+
+# git yesterday
+git config --global  alias.yesterday '!git log --graph --all --since="day.before.yesterday.midnight" --until=midnight --author="$(git config user.name)" --oneline'
