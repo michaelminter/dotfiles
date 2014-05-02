@@ -89,11 +89,10 @@ alias ls='ls -G'
 alias ll='ls -lG'
 alias la='ls -la'
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --colour=auto'
-alias pry="pry -r ./config/environment"
 alias e="gem env gemdir"
-alias pdi='cd ~/Google\ Drive/Repos/pdi'
 alias be='bundle exec'
 alias repos='cd /Users/michaelminter/Google\ Drive/Repos'
+alias h='cat ~/.ssh/config'
 
 ########
 ## git
@@ -122,10 +121,6 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 
 alias gs='git-sweep preview'
 
-###############################################
-GSUtil
-##############################################
-export PATH=${PATH}:$HOME/gsutil:/Applications/mmonit-3.2/bin
-
-alias h='cat ~/.ssh/config'
+# SET NEW LOOKUP PATHS
+export PATH=${PATH}:/Applications/mmonit-3.2/bin
 
