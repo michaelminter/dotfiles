@@ -16,6 +16,8 @@ Global git config rules
 
 ## clean_memory.sh
 
+Handy utility that will clear Linux caches
+
 ```
 $> scp clean_memory.sh user@host:~/
 ```
