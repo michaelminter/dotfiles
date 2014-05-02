@@ -334,7 +334,8 @@ function! CurDir()
 endfunction
 
 set number
- 
+set undolevels=1000           " 1000 undos 
+
 " Set status line colors
 hi StatusLine ctermbg=Black ctermfg=Gray
 hi TabLineFill ctermfg=Black ctermbg=Black
