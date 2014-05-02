@@ -14,6 +14,14 @@ $> cp .bash_profile ~/
 
 Global git config rules
 
+## .vimrc
+
+Vim config rules
+
+```
+$> cp .vimrc ~/
+```
+
 ## clean_memory.sh
 
 Handy utility that will clear Linux caches
