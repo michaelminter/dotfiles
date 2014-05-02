@@ -1,0 +1,26 @@
+[user]
+	name = Michael Minter
+	email = mothore@gmail.com
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	status = auto
+[core]
+	editor = vim
+	excludesfile = /Users/michaelminter/.gitignore_global
+	autocrlf = input
+
+[alias]
+        co = checkout
+        ci = commit
+        rb = rebase
+	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+	yesterday = !git log --graph --all --since=\"day.before.yesterday.midnight\" --until=midnight --author=\"$(git config user.name)\" --oneline
+	last = log -1 HEAD
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
