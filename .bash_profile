@@ -93,6 +93,7 @@ alias e="gem env gemdir"
 alias be='bundle exec'
 alias repos='cd /Users/michaelminter/Google\ Drive/Repos'
 alias h='cat ~/.ssh/config'
+alias mongod='sudo mongod --fork --logpath=/Users/michaelminter/Library/Logs/mongo.log --logappend'
 
 ########
 ## git
