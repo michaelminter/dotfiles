@@ -82,7 +82,7 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 
 
 #############################################
-# alias
+# aliases
 #############################################
 
 alias ls='ls -G'
@@ -91,7 +91,6 @@ alias la='ls -la'
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --colour=auto'
 alias e="gem env gemdir"
 alias be='bundle exec'
-alias repos='cd /Users/michaelminter/Google\ Drive/Repos'
 alias h='cat ~/.ssh/config'
 alias mongod='sudo mongod --fork --logpath=/Users/michaelminter/Library/Logs/mongo.log --logappend'
 
