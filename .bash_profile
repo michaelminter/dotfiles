@@ -92,6 +92,7 @@ alias grep='GREP_COLOR="1;33;40" LANG=C grep --colour=auto'
 alias e="gem env gemdir"
 alias be='bundle exec'
 alias h='cat ~/.ssh/config'
+alias r='cd /Users/michaelminter/Google\ Drive/Repos'
 alias mongod='sudo mongod --fork --logpath=/Users/michaelminter/Library/Logs/mongo.log --logappend'
 
 ########
