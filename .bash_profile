@@ -125,3 +125,6 @@ alias gs='git-sweep preview'
 # SET NEW LOOKUP PATHS
 export PATH=${PATH}:/Applications/mmonit-3.2/bin
 
+# define base directory for cd command
+export CDPATH=/Users/michaelminter/Google\ Drive/Repos
+
