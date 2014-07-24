@@ -128,3 +128,8 @@ export PATH=${PATH}:/Applications/mmonit-3.2/bin
 # define base directory for cd command
 export CDPATH=/Users/michaelminter/Google\ Drive/Repos
 
+# add bash-completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+
