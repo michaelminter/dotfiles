@@ -89,47 +89,35 @@ alias ls='ls -G'
 alias ll='ls -lG'
 alias la='ls -la'
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --colour=auto'
-alias e="gem env gemdir"
 alias be='bundle exec'
-alias h='cat ~/.ssh/config'
-alias r='cd /Users/michaelminter/Google\ Drive/Repos'
 alias mongod='sudo mongod --fork --logpath=/Users/michaelminter/Library/Logs/mongo.log --logappend'
 
-########
-## git
+#############################################
+# git
+#############################################
 
 source ~/git-completion.bash
 
 alias g='git status'
-alias gg='git log'
-alias gst='git status'
-
-alias gb='git branch'
-alias gba='git branch -a'
-
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gce="git commit --amend" # fix last commit message
-alias gco='git checkout'
-
-alias gd='git diff | bbedit'
-alias gdm='git diff master'
-
-alias gl='git pull'
-alias gp='git push'
-
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 
-alias gs='git-sweep preview'
+#############################################
+# lookup paths
+#############################################
 
-# SET NEW LOOKUP PATHS
-export PATH=${PATH}:/Applications/mmonit-3.2/bin
 
-# define base directory for cd command
-export CDPATH=$CDPATH:/Users/michaelminter/Google\ Drive/Repos
+
+#############################################
+# base directories
+#############################################
+
+export CDPATH=$CDPATH:/Users/michaelminter/Repos
+
+#############################################
+# extra
+#############################################
 
 # add bash-completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
-
