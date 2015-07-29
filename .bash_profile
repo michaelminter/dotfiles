@@ -1,3 +1,5 @@
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+
 #############################################
 # RVM - for managing versions of ruby
 #############################################
