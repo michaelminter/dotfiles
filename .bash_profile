@@ -64,7 +64,30 @@ function git_branch {
   fi
 }
 
-PS1='\[`echo -e $dir_listing_color`\]\w\[`git_color`\]`git_branch`\[\e[0m\]$ '
+function rvm_ruby_version {
+  # if [[ "$PWD" =~ Repositories ]]; then
+    # GEM_HOME split on @, 2nd part is gemset
+    local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
+
+    # Put @ before it again, unless its blank
+    [ "$gemset" != "" ] && gemset="@$gemset"
+
+    # MY_RUBY_HOME split on -, 2nd part is version
+    local version=$(echo $MY_RUBY_HOME | awk -F'-' '{print $2}')
+
+    # Combine and display
+    local full="$version$gemset"
+    [ "$full" != "" ] && echo "$full"
+  # fi
+}
+
+rvm_prompt() {
+  if [[ "$PWD" =~ Repositories ]]; then
+    echo " "`$HOME/.rvm/bin/rvm-prompt v g`
+  fi
+}
+
+PS1='\[`echo -e $dir_listing_color`\]\w\[`echo -e $txtred`\]\[`rvm_prompt`\]\[`git_color`\]`git_branch`\[\e[0m\]$ '
 PS2="> "
 
 #############################################
