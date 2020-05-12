@@ -1,11 +1,3 @@
-[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
-
-#############################################
-# RVM - for managing versions of ruby
-#############################################
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 #############################################
 # GIT completions & highlighted prompt 
 #############################################
@@ -82,7 +74,6 @@ PS2="> "
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
-
 #############################################
 # aliases
 #############################################
@@ -91,29 +82,26 @@ alias ls='ls -G'
 alias ll='ls -lG'
 alias la='ls -la'
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --colour=auto'
-alias be='bundle exec'
-alias mongod='sudo mongod --fork --logpath=/Users/michaelminter/Library/Logs/mongo.log --logappend'
 
 #############################################
 # git
 #############################################
 
-source ~/git-completion.bash
+source ~/.git-completion.bash
 
-alias g='git status'
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+alias grecent='git for-each-ref --sort=-committerdate refs/heads --format "%(HEAD) %(committerdate:relative);%(refname:short);%(objectname:short);%(authorname)" | grep -v ";HEAD$" | column -s ";" -t'
 
 #############################################
 # lookup paths
 #############################################
 
-
+export PATH=$PATH:/Users/michaelminter/bin
 
 #############################################
 # base directories
 #############################################
 
-export CDPATH=$CDPATH:/Users/michaelminter/Repos
+export CDPATH=$CDPATH:/Users/mminter/Repositories
 
 #############################################
 # extra
@@ -123,3 +111,13 @@ export CDPATH=$CDPATH:/Users/michaelminter/Repos
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
+
+if [ -f `brew --prefix`/etc/bash_completion.d/rails.bash ]; then
+  source `brew --prefix`/etc/bash_completion.d/rails.bash
+fi
+
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+
+export PATH="/usr/local/sbin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
