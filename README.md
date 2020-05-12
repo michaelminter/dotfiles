@@ -6,6 +6,8 @@ List of files used by both Linux and Mac systems
 
 User specific session environment and startup programs
 
+- Updates bash prompt to, `<working-dir> <rvm-ver>@<rvm-gemset> <git-branch>$`.
+
 ```
 $> cp .bash_profile ~/
 ```
