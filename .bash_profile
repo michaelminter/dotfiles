@@ -118,7 +118,7 @@ alias grecent='git for-each-ref --sort=-committerdate refs/heads --format "%(HEA
 # lookup paths
 #############################################
 
-export PATH=$PATH:/Users/michaelminter/bin
+export PATH=$PATH:/Users/mminter/bin
 
 #############################################
 # base directories
