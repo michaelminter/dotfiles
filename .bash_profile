@@ -139,8 +139,6 @@ if [ -f `brew --prefix`/etc/bash_completion.d/rails.bash ]; then
   source `brew --prefix`/etc/bash_completion.d/rails.bash
 fi
 
-[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
-
-export PATH="/usr/local/sbin:$PATH"
+export PATH=$PATH:/usr/local/sbin
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
