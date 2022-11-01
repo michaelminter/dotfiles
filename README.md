@@ -1,16 +1,16 @@
-__Rucksack__, everything you need to get started on your Huckberry journey.
+__Rucksack__, everything you need to get started on your journey.
 
-### Dependencies
+## Dependencies
 
 * Mac 10+
 
-### Install
+## Installation
 
 Clone the repo:
 
 ```
 $ cd ~/Projects
-$ git clone https://github.com/huckberry/rucksack.git
+$ git clone https://github.com/michaelminter/rucksack.git
 $ cd rucksack/
 ```
 
@@ -23,3 +23,9 @@ Run the script and follow the prompts:
 ```
 $ bash install.sh 
 ```
+
+## TODO
+
+- Add dots to dotfiles.
+- Abstract functions into commands.
+- Use requested git creds and remove set_env.
