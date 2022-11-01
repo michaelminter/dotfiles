@@ -59,7 +59,7 @@ install_bash_profile() {
     cp ./bash_profile.sh $HOME/.bash_profile
     source ~/.bash_profile
     success "bash_profile installation succeeded."
-  fi   
+  fi
 }
 
 install_gitconfig() {
@@ -70,7 +70,7 @@ install_gitconfig() {
     cp ./gitconfig $HOME/.gitconfig
     source ~/.gitconfig
     success "gitconfig install successful."
-  fi   
+  fi
 }
 
 install_gitignore() {
@@ -78,10 +78,10 @@ install_gitignore() {
   if [ -f "$HOME/.gitignore" ]; then
     e_arrow "gitignore already exists."
   else
-    cp ./gitignore $HOME/.gitignore
+    cp ./.gitignore $HOME/.gitignore
     source ~/.gitignore
     success "gitignore install successful."
-  fi   
+  fi
 }
 
 configure_git() {
