@@ -122,6 +122,7 @@ cask 'thinkorswim'
 cask 'spotify'
 cask 'google-drive'
 cask 'copyclip'
+cask 'sourcetree'
 
 # Quicklook
 cask 'qlcolorcode'
