@@ -121,8 +121,8 @@ cask 'istat-menus'
 cask 'thinkorswim'
 cask 'spotify'
 cask 'google-drive'
-cask 'copyclip'
-cask 'sourcetree'
+cask 'copyclip' # Clipboard manager
+cask 'sourcetree' # Graphical client for Git version control
 
 # Quicklook
 cask 'qlcolorcode'
