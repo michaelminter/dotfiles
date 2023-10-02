@@ -104,6 +104,3 @@ kvars() {
 kroutes() {
   kubectl exec -it -n "$1" "$2" -- bin/env rake routes
 }
-
-export GITHUB_OAUTH_TOKEN=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
-
