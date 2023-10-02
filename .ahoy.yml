@@ -1,0 +1,50 @@
+ahoyapi: v2
+
+commands:
+  up:
+    usage: run
+    cmd: docker compose up --build $@
+
+  down:
+    usage: remove
+    cmd: docker compose down
+
+  logs:
+    usage: logs
+    cmd: docker compose logs -f
+
+  test:
+    usage: run tests
+    cmd: docker compose run --rm app mix test
+
+  setup:
+    usage: setup db (create, migrate, seed)
+    cmd: docker compose run --rm app mix ecto.setup
+
+  reset:
+    usage: reset db (drop, create, migrate, seed)
+    cmd: docker compose run --rm app mix ecto.reset
+
+  create:
+    usage: create db
+    cmd: docker compose run --rm app mix ecto.create
+
+  migrate:
+    usage: migrate db
+    cmd: docker compose run --rm app mix ecto.migrate
+
+  seed:
+    usage: seed db
+    cmd: docker compose run --rm app mix run priv/repo/seeds.exs
+
+  drop:
+    usage: drop db
+    cmd: docker compose run --rm app mix ecto.drop
+
+  shell:
+    usage: shell
+    cmd: docker compose run --rm app bash
+
+  console:
+    usage: console
+    cmd: docker compose run --rm app iex -S mix
