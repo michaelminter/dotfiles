@@ -5,6 +5,9 @@
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
+	# Cleaning and aborting any potential rebase
+	nah = "!f(){ git reset --hard; git clean -df; if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then git rebase --abort; fi; }; f"
+
 	# View the current working tree status using the short format.
 	s = status -s
 
@@ -97,7 +100,7 @@
 	editor = code --wait
 
 	# Use custom `.gitignore` and `.gitattributes`.
-	excludesfile = /Users/michael.minter/.gitignore
+	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error.
@@ -207,7 +210,7 @@
 	defaultBranch = fcn/integration
 
 [user]
-	email = michael.minter@flagshipcredit.com
+	email = mothore@gmail.com
 	name = Michael Minter
 
 	# signingkey = 1B706437265DB35D
