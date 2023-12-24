@@ -65,11 +65,11 @@ alias grep='GREP_COLOR="1;33;40" LANG=C grep --colour=auto'
 #############################################
 # NVM - for managing versions of node
 #############################################
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 #############################################
 # Bash Completion
@@ -83,24 +83,3 @@ export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
 export PATH=$(pyenv root)/shims:$PATH
 
 eval "$(direnv hook bash)"
-
-alias postald='docker run -p 8080:8080 clicksend/libpostal-rest'
-alias kpods='kubectl get pods -A'
-alias klogs='kubectl logs -n '
-
-
-kbash() {
-  kubectl exec -it -n "$1" "$2" -- bash
-}
-
-kconsole() {
-  kubectl exec -it -n "$1" "$2" -- bin/env console
-}
-
-kvars() {
-  kubectl exec -it -n "$1" "$2" -- bin/env donothing
-}
-
-kroutes() {
-  kubectl exec -it -n "$1" "$2" -- bin/env rake routes
-}
