@@ -1,0 +1,21 @@
+#!/bin/sh
+
+tmux kill-session -a
+
+tmux new-session -d -s DevSession -n Frontends -c ~/Projects/refi
+
+tmux split-window -h -c ~/Projects/MissionControl
+tmux split-window -h -c ~/Projects/marketplace-mc
+
+# tmux select-pane -t 0
+# tmux rename-pane BlinkerConsumer
+
+# tmux select-pane -t 1
+# tmux rename-pane BlinkerAgent
+
+# tmux select-pane -t 2
+# tmux rename-pane MarketplaceAgent
+
+tmux select-layout even-horizontal
+
+tmux -2 attach-session -d
