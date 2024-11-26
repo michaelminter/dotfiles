@@ -13,7 +13,7 @@ __powerline() {
 
     # Symbols
     SYMBOL_GIT_BRANCH=${SYMBOL_GIT_BRANCH:-⑂}
-    SYMBOL_GIT_MODIFIED=${SYMBOL_GIT_MODIFIED:-*}
+    SYMBOL_GIT_MODIFIED=${SYMBOL_GIT_MODIFIED:-Δ}
     SYMBOL_GIT_PUSH=${SYMBOL_GIT_PUSH:-↑}
     SYMBOL_GIT_PULL=${SYMBOL_GIT_PULL:-↓}
 
@@ -35,7 +35,8 @@ __powerline() {
 
         if [[ -n "$ref" ]]; then
             # prepend branch symbol
-            ref=$SYMBOL_GIT_BRANCH$ref
+            # ref="$SYMBOL_GIT_BRANCH $ref"
+            ref="$ref"
         else
             # get tag name or short unique hash
             ref=$($git_eng describe --tags --always 2>/dev/null)
@@ -57,7 +58,7 @@ __powerline() {
         done < <($git_eng status --porcelain --branch 2>/dev/null)  # note the space between the two <
 
         # print the git branch segment without a trailing newline
-        printf " $ref$marks"
+        printf " $ref $marks"
     }
 
     ps1() {
