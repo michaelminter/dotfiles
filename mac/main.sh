@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./utils.sh
+source ../utils.sh
 
 main() {
   # Cloning Dotfiles repository for install_packages_with_brewfile
@@ -34,12 +34,6 @@ main() {
 
   # Install applications from Brewfile
   install_packages_with_brewfile
-
-  # Install Ruby Version Manager and Ruby
-  install_rvm
-
-  # Install Node Version Manager and Node
-  install_nvm
 }
 
 set_bash() {
@@ -67,7 +61,7 @@ install_gitconfig() {
   if [ -f "$HOME/.gitconfig" ]; then
     e_arrow "gitconfig already exists."
   else
-    cp ./gitconfig $HOME/.gitconfig
+    cp ../gitconfig $HOME/.gitconfig
     source ~/.gitconfig
     success "gitconfig install successful."
   fi
@@ -78,7 +72,7 @@ install_gitignore() {
   if [ -f "$HOME/.gitignore" ]; then
     e_arrow "gitignore already exists."
   else
-    cp ./.gitignore $HOME/.gitignore
+    cp ../.gitignore $HOME/.gitignore
     source ~/.gitignore
     success "gitignore install successful."
   fi
@@ -102,7 +96,7 @@ install_vimrc() {
     cp ./vimrc $HOME/.vimrc
     source ~/.vimrc
     success "vimrc install successful."
-  fi   
+  fi
 }
 
 generate_ssh_key() {
@@ -135,6 +129,7 @@ install_homebrew() {
   else
     if /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
       success "Homebrew installation succeeded."
+      # TODO: What's this for?
       echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.bash_profile
       eval "$(/opt/homebrew/bin/brew shellenv)"
     else
@@ -152,51 +147,6 @@ install_packages_with_brewfile() {
     error "Brewfile installation failed."
     exit 1
   fi
-}
-
-install_rvm() {
-    e_header "Installing rvm, ruby..."
-    source $HOME/.bash_profile
-
-    if ! type_exists 'rvm'; then
-      # install gpg
-      gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-
-      # Install RVM
-      curl -sSL https://get.rvm.io | bash
-
-      source ~/.rvm/scripts/rvm
-      source ~/.bash_profile
-    else
-       e_arrow "Nothing to install. You've already got them all."
-    fi
-
-    # install current used version of Ruby
-    rvm install 3.0.4 --default
-}
-
-install_nvm() {
-    e_header "Installing nvm, node, npm..."
-    source $HOME/.bash_profile
-
-    if ! type_exists 'nvm'; then
-      # Install NVM
-      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-      
-	    source ~/.bashrc 
-      source ~/.bash_profile
-
-      # install current used version of Node
-      nvm install 16.13.1
-
-      # set default Node version
-      nvm alias default 16.13.1
-
-      # update npm
-      npm install -g npm@latest      
-    else
-       e_arrow "Nothing to install. You've already got them all."
-    fi
 }
 
 main "$@"

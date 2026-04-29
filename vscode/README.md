@@ -18,3 +18,21 @@ Below is a list of the recommended extensions and a brief description of what th
 
 ## Installation
 When you open this project in VS Code, you should be prompted to install these recommended extensions. If not, you can manually install them by navigating to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X`) and searching for each extension by its ID (e.g., `esbenp.prettier-vscode`).
+
+## Backup and restore
+
+`.extensions.json` doubles as a backup of every extension currently installed
+in VS Code, so a fresh machine can be rehydrated in one shot.
+
+Refresh the backup from the current machine (run after installing or removing
+extensions):
+
+```
+code --list-extensions | jq -R . | jq -s '{recommendations: .}' > vscode/.extensions.json
+```
+
+Restore on a new machine (requires `jq` and the `code` CLI on `$PATH`):
+
+```
+jq -r '.recommendations[]' vscode/.extensions.json | xargs -L1 code --install-extension
+```

@@ -5,6 +5,9 @@
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
+	# Cleaning and aborting any potential rebase
+	nah = "!f(){ git reset --hard; git clean -df; if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then git rebase --abort; fi; }; f"
+
 	# View the current working tree status using the short format.
 	s = status -s
 
@@ -26,9 +29,12 @@
 	# Switch to a branch, creating it if necessary.
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
+        # Rename current branch
+        rename = branch -m
+
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
-	branches = branch --all
+	branches = branch --sort=refname --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:short)%(color:reset))'
 	remotes = remote --verbose
 
 	# List aliases.
@@ -74,8 +80,13 @@
 	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
 	yesterday = !git log --graph --all --since=\"day.before.yesterday.midnight\" --until=midnight --author=\"$(git config user.name)\" --oneline
 	last = log -1 HEAD
+  year = !git log --format=format: --name-only --since="1 year ago" | sort | uniq -c | sort -nr | head -20
+
+  users = shortlog -sn --no-merges
 
   po = "!git pull origin \"$(git rev-parse --abbrev-ref HEAD)\""
+
+  deploy = !git commit --allow-empty -m "deploy" && git push origin HEAD --no-verify
 
 [apply]
 
@@ -85,14 +96,14 @@
 [branch]
 
 	# Show most recently changed branches first.
-	sort = -committerdate
+	sort = refname
 
 [core]
 
-	editor = vim
+	editor = code --wait
 
 	# Use custom `.gitignore` and `.gitattributes`.
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/michael/.gitignore
 	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error.
@@ -138,9 +149,11 @@
 	untracked = cyan
 
 [commit]
+	template = /Users/michael/.stCommitMsg
+	gpgsign = true
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	# template = /Users/mminter/.stCommitMsg
+	# template = /Users/michael/.stCommitMsg
 	# gpgsign = true
 
 [diff]
@@ -165,7 +178,7 @@
 
 [pull]
 
-	rebase = true
+	rebase = false
 
 [push]
 
@@ -201,13 +214,16 @@
 	defaultBranch = main
 
 [user]
+	email = mothore@gmail.com
+	name = Michael Minter
+	signingkey = /Users/michael/.ssh/id_ed25519.pub
 
 	# signingkey = 1B706437265DB35D
 
 [difftool "sourcetree"]
 
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 
@@ -215,5 +231,12 @@
 	trustExitCode = true
 
 [gpg]
+	format = ssh
 
 	# program = gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[http]

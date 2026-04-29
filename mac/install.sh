@@ -9,7 +9,7 @@ main() {
     read -p 'Git Username: ' YOURUSERNAME 
     read -p 'Git Email: ' YOUREMAIL
 
-    source ./set_env.sh 
+    source ../.envrc
     echo "git configured now....lets go"
   else 
     echo "git configured already....lets go"
