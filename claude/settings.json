@@ -1,0 +1,97 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash(awk*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(file:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(sed:*)",
+      "Bash(tree:*)",
+      "WebFetch",
+      "WebSearch",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git show*)",
+      "Bash(git branch*)",
+      "Bash(git remote*)",
+      "Bash(direnv exec:*)",
+      "Bash(docker compose:*)",
+      "Bash(ruby -e \"require './config/environment';*)",
+      "Bash(jq:*)",
+      "Bash(heroku logs*)"
+    ],
+    "defaultMode": "auto"
+  },
+  "enabledPlugins": {
+    "chrome-devtools-mcp@chrome-devtools-plugins": true,
+    "andrej-karpathy-skills@karpathy-skills": true,
+    "claude-mem@thedotmack": true
+  },
+  "extraKnownMarketplaces": {
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    },
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "skipAutoPermissionPrompt": true,
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
+    },
+    "coralogix-server": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://api.us2.coralogix.com/mgmt/api/v1/mcp",
+        "--header", "Authorization: Bearer ${CORALOGIX_API_KEY}"
+      ]
+    },
+    "heroku": {
+      "command": "npx -y @heroku/mcp-server",
+      "env": {
+        "HEROKU_API_KEY": "${HEROKU_API_KEY}"
+      }
+    },
+    "honeybadger": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "HONEYBADGER_PERSONAL_AUTH_TOKEN",
+        "ghcr.io/honeybadger-io/honeybadger-mcp-server"
+      ],
+      "env": {
+        "HONEYBADGER_PERSONAL_AUTH_TOKEN": "${HONEYBADGER_AUTH_TOKEN}"
+      }
+    }
+  },
+  "skylight": {
+    "command": "gem",
+    "args": ["exec", "skylight-mcp", "--token", "${SKYLIGHT_TOKEN}"]
+  }
+}

@@ -15,6 +15,7 @@ tap 'homebrew/cask-drivers'
 brew 'ack' # Search tool like grep, but optimized for programmers
 brew 'asdf' # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew 'apfel' # A command-line tool to manage Apple Silicon's performance modes
+brew 'Arthur-Ficial/tap/auge' # A command-line tool to manage Apple Silicon's performance modes
 # brew 'bash'
 brew 'git' # Distributed revision control system
 # brew 'git-extras' # Git utilities -- repo summary, repl, changelog population, author commit percentages and more
