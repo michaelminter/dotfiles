@@ -7,6 +7,7 @@
 tap 'homebrew/bundle'
 # Contains Casks for installing various device drivers.
 tap 'homebrew/cask-drivers'
+tap 'menubar-apps/menubar-apps'
 
 #####################################
 # 'brew install'
@@ -44,6 +45,7 @@ brew 'pkg-config' # Package compiler and linker metadata toolkit
 # brew 'heroku'
 # brew 'gh' # GitHub command-line tool
 # brew 'go' # Open source programming language to build simple/reliable/efficient software
+brew 'streakbar' # GitHub contributions chart in you menu bar
 
 # data stores and tools
 # brew 'mysql'
