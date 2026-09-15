@@ -29,8 +29,8 @@
 	# Switch to a branch, creating it if necessary.
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
-  # Rename current branch
-  rename = branch -m
+        # Rename current branch
+        rename = branch -m
 
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
@@ -80,10 +80,35 @@
 	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
 	yesterday = !git log --graph --all --since=\"day.before.yesterday.midnight\" --until=midnight --author=\"$(git config user.name)\" --oneline
 	last = log -1 HEAD
+  year = !git log --format=format: --name-only --since="1 year ago" | sort | uniq -c | sort -nr | head -20
+
+  users = shortlog -sn --no-merges
 
   po = "!git pull origin \"$(git rev-parse --abbrev-ref HEAD)\""
 
   deploy = !git commit --allow-empty -m "deploy" && git push origin HEAD --no-verify
+
+  wt = "!f() { \
+        branch=\"$1\"; \
+        test -n \"$branch\" || { \
+            echo \"Usage: git wt <remote-branch>\" >&2; \
+            return 2; \
+        }; \
+        directory=$(printf '%s' \"$branch\" | tr '/' '-'); \
+        git fetch origin && \
+        git worktree add -b \"$branch\" \"../$directory\" \"origin/$branch\" && \
+        code --new-window \"../$directory\"; \
+    }; f"
+
+  wtrm = "!f() { \
+        branch=\"$1\"; \
+        test -n \"$branch\" || { \
+            echo \"Usage: git wtrm <branch>\" >&2; \
+            return 2; \
+        }; \
+        directory=$(printf '%s' \"$branch\" | tr '/' '-'); \
+        git worktree remove \"../$directory\"; \
+    }; f"
 
 [apply]
 
@@ -100,7 +125,7 @@
 	editor = code --wait
 
 	# Use custom `.gitignore` and `.gitattributes`.
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/michael/.gitignore
 	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error.
@@ -146,10 +171,11 @@
 	untracked = cyan
 
 [commit]
-	template = /Users/michael.minter/.stCommitMsg
+	template = /Users/michael/.stCommitMsg
+	gpgsign = true
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	# template = /Users/mminter/.stCommitMsg
+	# template = /Users/michael/.stCommitMsg
 	# gpgsign = true
 
 [diff]
@@ -207,25 +233,27 @@
 
 [init]
 
-	defaultBranch = fcn/integration
+	defaultBranch = main
 
 [user]
 	email = mothore@gmail.com
 	name = Michael Minter
+	signingkey = /Users/michael/.ssh/id_ed25519.pub
 
 	# signingkey = 1B706437265DB35D
 
 [difftool "sourcetree"]
 
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 
-	cmd = /Users/michael.minter/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
 [gpg]
+	format = ssh
 
 	# program = gpg
 [filter "lfs"]
@@ -234,3 +262,5 @@
 	process = git-lfs filter-process
 	required = true
 [http]
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials
