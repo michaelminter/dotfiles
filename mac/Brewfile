@@ -134,6 +134,7 @@ cask 'visual-studio-code' # Open-source code editor - Installs CLI tool `code`
 cask '1password' # Password manager that keeps all passwords secure behind one password
 # cask 'chatgpt' # OpenAI's official ChatGPT desktop app
 cask 'notion' # App to write, plan, collaborate, and get organised
+cask 'raycast' # Control your tools with a few keystrokes
 
 # SYSTEM
 # cask 'caffeine' # Utility that prevents the system from going to sleep
