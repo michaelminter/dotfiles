@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 ask_for_sudo() {
   info "Prompting for sudo password..."
   if sudo --validate; then

@@ -45,7 +45,7 @@ brew 'pkg-config' # Package compiler and linker metadata toolkit
 # brew 'heroku'
 # brew 'gh' # GitHub command-line tool
 # brew 'go' # Open source programming language to build simple/reliable/efficient software
-brew 'streakbar' # GitHub contributions chart in you menu bar
+# brew 'streakbar' # GitHub contributions chart in you menu bar
 
 # data stores and tools
 # brew 'mysql'
@@ -79,7 +79,7 @@ brew 'streakbar' # GitHub contributions chart in you menu bar
 # brew 'media-info'
 # brew 'youtube-dl'
 # brew 'vips'
-brew 'plantuml' # Draw UML diagrams
+# brew 'plantuml' # Draw UML diagrams
 
 # aws tools
 # brew 'terraform' # Tool to build, change, and version infrastructure
@@ -106,19 +106,19 @@ cask_args appdir: '~/Applications', require_sha: true
 
 
 # COMMUNICATIONS
-cask 'discord' # Voice and text chat software
+# cask 'discord' # Voice and text chat software
 cask 'slack' # Team communication and collaboration software
 # cask 'telegram' # Messaging app with a focus on speed and security
-cask 'zoom' # Video communication and virtual meeting platform
+# cask 'zoom' # Video communication and virtual meeting platform
 
 # DEVELOPMENT
-cask 'brave-browser' # Web browser focusing on privacy
+# cask 'brave-browser' # Web browser focusing on privacy
 # cask 'firefox'
 # cask 'microsoft-edge'
 cask 'bruno' # Open source IDE for exploring and testing APIs
-cask 'cursor' # Write, edit, and chat about your code with AI
+# cask 'cursor' # Write, edit, and chat about your code with AI
 cask 'dbeaver-community' # Universal database tool and SQL client
-cask 'docker-desktop' # App to build and share containerised applications and microservices
+# cask 'docker-desktop' # App to build and share containerised applications and microservices
 # cask 'jetbrains-toolbox' # JetBrains tools manager
 # cask 'postman' # Collaboration platform for API development
 # cask 'sourcetree' # Graphical client for Git version control
@@ -131,7 +131,7 @@ cask 'visual-studio-code' # Open-source code editor - Installs CLI tool `code`
 
 # OPERATIONS
 cask '1password' # Password manager that keeps all passwords secure behind one password
-cask 'chatgpt' # OpenAI's official ChatGPT desktop app
+# cask 'chatgpt' # OpenAI's official ChatGPT desktop app
 cask 'notion' # App to write, plan, collaborate, and get organised
 
 # SYSTEM
