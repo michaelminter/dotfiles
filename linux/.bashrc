@@ -34,9 +34,3 @@ alias ghusage="gh api \"/users/\$(gh api user --jq .login)/settings/billing/usag
     free_remaining: ([2000 - (\$runners | map(.discountQuantity) | add // 0), 0]| max)
   }
 '"
-
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
-# For direnv to work properly it needs to be hooked into the shell.
-# Make sure it appears even after rvm, git-prompt and other shell extensions that manipulate the prompt.
-eval "$(direnv hook bash)"
