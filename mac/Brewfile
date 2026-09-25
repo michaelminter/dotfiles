@@ -40,6 +40,7 @@ brew 'jq' # Lightweight and flexible command-line JSON processor
 brew 'libpq' # Postgres C API library
 brew 'libyaml' # YAML Parser
 brew 'mas' # Mac App Store command-line interface
+brew 'mise' # Polyglot runtime manager (asdf rust clone)
 brew 'pkg-config' # Package compiler and linker metadata toolkit
 # brew 'libtool' # Generic library support script
 # brew 'heroku'
