@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Linux News Feeds</title>
+  </head>
+  <body>
+    <outline text="9to5Linux" title="9to5Linux" type="rss" xmlUrl="https://9to5linux.com/feed/atom" htmlUrl="https://9to5linux.com/" />
+    <outline text="LXer" title="LXer" type="rss" xmlUrl="https://lxer.com/module/newswire/headlines.rss" htmlUrl="https://lxer.com/" />
+    <outline text="Linuxiac" title="Linuxiac" type="rss" xmlUrl="https://linuxiac.com/feed/" htmlUrl="https://linuxiac.com/" />
+  </body>
+</opml>
