@@ -132,6 +132,7 @@ cask 'visual-studio-code' # Open-source code editor - Installs CLI tool `code`
 
 # OPERATIONS
 cask '1password' # Password manager that keeps all passwords secure behind one password
+cask '1password-cli' # Command-line interface for 1Password
 # cask 'chatgpt' # OpenAI's official ChatGPT desktop app
 cask 'notion' # App to write, plan, collaborate, and get organised
 cask 'raycast' # Control your tools with a few keystrokes
